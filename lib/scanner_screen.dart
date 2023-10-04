@@ -69,27 +69,50 @@ class _ScannerScreenState extends State<ScannerScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(title: const Text('Barcode scan')),
-            body: Builder(builder: (BuildContext context) {
-              return Container(
-                  alignment: Alignment.center,
-                  child: Flex(
-                      direction: Axis.vertical,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ElevatedButton(
-                            onPressed: () => scanBarcodeNormal(),
-                            child: Text('Start barcode scan')),
-                        /*ElevatedButton(
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Capital Bank Barcode Scan'),
+            backgroundColor: Colors.red,
+          ),
+          body: Builder(builder: (BuildContext context) {
+            return Container(
+                alignment: Alignment.center,
+                child: Flex(
+                    direction: Axis.vertical,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      ElevatedButton(
+                          onPressed: () => scanBarcodeNormal(),
+                          child: Text('Start barcode scan')),
+                      /*ElevatedButton(
                             onPressed: () => scanQR(),
                             child: Text('Start QR scan')),
                         ElevatedButton(
                             onPressed: () => startBarcodeScanStream(),
                             child: Text('Start barcode scan stream')),*/
-                        Text('Scan result : $_scanBarcode\n',
-                            style: TextStyle(fontSize: 20))
-                      ]));
-            })));
+                      Text('Scan result : $_scanBarcode\n',
+                          style: TextStyle(fontSize: 20))
+                    ]));
+          })),
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a blue toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
+        useMaterial3: true,
+      ),
+    );
   }
 }
